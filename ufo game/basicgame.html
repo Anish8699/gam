@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-image: url(/image/space.jpg);
+        }
+
+        img {
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s linear;
+        }
+
+        .btn {
+            top: 70%;
+            left: 50%;
+            position: absolute;
+            /* border: 2px solid red; */
+            padding: 20px 100px;
+            margin-left: 60px;
+            transform: translateX(-50%);
+        }
+
+        button {
+            padding: 25px 40px;
+            border-radius: 20%;
+            font-size: 20px;
+            font-weight: 700;
+            background-color: rgb(15, 13, 13);
+            color: skyblue;
+            border: 2px solid white;
+        }
+
+        .up {
+            margin-top: -16px;
+            margin-left: 17px;
+
+
+        }
+
+        .left {
+            margin-left: -90px;
+        }
+
+        .right {
+            margin-top: -156px;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="/image/24051.jpg" height="200px" width="200px" alt="">
+    <div class="btn">
+        <div class="up">
+            <button class="up1" onmousemove="up()">UP</button>
+        </div>
+        <div class="left">
+            <button class="left1" onmousemove="left()">LEFT</button>
+        </div>
+        <div class="down">
+            <button class="down1" onmousemove="down()">DOWN</button>
+        </div>
+        <div class="right">
+            <button class="right1" onmousemove="right()">RIGHT</button>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        let x = document.querySelector("img");
+        let a = document.querySelector("up1");
+        let b = document.querySelector("left1");
+        let c = document.querySelector("down1");
+        let d = document.querySelector("right1");
+        let count = -10;
+        let wid = window.innerWidth;
+        let hei = window.innerHeight;
+        console.log(hei);
+        let imgpos = x.offsetLeft;
+        let imgtop = x.offsetTop;
+        console.log(imgtop);
+
+        function up() {
+            if (imgtop < hei && imgtop>110) {
+                count -= 10;
+                imgtop -= 10;
+                console.log(imgtop);
+                x.style.marginTop = `${count}px`;
+            }
+            
+
+        }
+        function down() {
+            if (imgtop<hei && imgtop<(hei-80)) {
+                count += 10;
+                imgtop+=10;
+                console.log(imgtop);
+                x.style.marginTop = `${count}px`;
+            }
+
+
+        }
+        let count1 = -10;
+        function left() {
+            if (imgpos < wid && imgpos < (wid - 108)) {
+                count1 -= 10;
+                imgpos += 10;
+                console.log(imgpos);
+                x.style.marginLeft = `${count1}px`;
+                // console.log(count1);
+            }
+
+
+        }
+        // let count2=10;
+        function right() {
+            // console.log(count1);
+            if ((imgpos < wid) && (imgpos > 94)) {
+                count1 += 10;
+                imgpos -= 10;
+                console.log(imgpos);
+                x.style.marginLeft = `${count1}px`;
+            }
+            if (imgpos > wid) {
+                imgpos -= 10;
+            }
+
+        }
+        // console.log(window.innerHeight);
+        // console.log(window.innerWidth);
+
+
+    </script>
+</body>
+
+</html>
